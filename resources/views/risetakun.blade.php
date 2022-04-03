@@ -17,7 +17,7 @@
         @endif
     </div>
     <div class="col-md-8">
-        <h1>PEDULI DIRI</h1>
+        <h1>Kemana Aje!</h1>
         <p>Catatan Perjalanan</p>
         <div class="card">
             <div class="card-body">
