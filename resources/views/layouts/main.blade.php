@@ -34,11 +34,11 @@
 
     <style>
         body {
-            color: rgb(255, 104, 50);
+            color: #ff6832;
         }
 
         .card {
-            border-radius: 22px;
+            border-radius: 20px;
         }
 
     </style>

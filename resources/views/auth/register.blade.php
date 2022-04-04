@@ -14,8 +14,8 @@
     </style>
     <div class="col-7">
         <div class="card ms-2" style="width: 40rem; height: 30rem;">
-            <a href="/" class="text-decoration-none" style="color:orangered; letter-spacing: 0px;"><h1 class="text-center mt-5">KemanaAje</h1></a>
-            <h4 class="text-center mb-5" style="letter-spacing: 0px;">Catat Perjalanan Kamu!</h4>
+            <a href="/" class="text-decoration-none" style="color:orangered; letter-spacing: 0px;"><h1 class="text-center mt-5">Kemana Aje!</h1></a>
+            <h4 class="text-center mb-5" style="letter-spacing: 0px;">Catat Perjalanan Kamu</h4>
             <div class="card-body">
                 <form method="POST" action="{{ route('register.create') }}">
                     @csrf

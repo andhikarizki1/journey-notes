@@ -6,13 +6,13 @@
                 <a class="navbar-brand" href="{{ route('user.dash') }}"
                     style="font-family: Arial, Helvetica, sans-serif; color:orangered;letter-spacing: 0px;">
                     <img src="{{ asset('images/logo-tb.png') }}" alt="logo tb" width="40" height="40" class="d-inline-block">
-                    <strong>KemanaAje</strong>
+                    <strong>KemanaAje!</strong>
                 </a>
                 @elseif(Auth::user()->roles == 'admin')
                 <a class="navbar-brand" href="{{ route('admin.dash') }}"
                     style="font-family: Arial, Helvetica, sans-serif; color:orangered;letter-spacing: 0px;">
                     <img src="{{ asset('images/logo-tb.png') }}" alt="logo tb" width="40" height="40" class="d-inline-block">
-                    <strong>KemanaAje</strong>
+                    <strong>KemanaAje!</strong>
                 </a>
                 @endif
             @endauth

@@ -6,7 +6,7 @@ use Carbon\Carbon;
 <html lang="en">
 
 <head>
-    <title>Data Catatan</title>
+    <title>Laporan Catatan Perjalanan</title>
     <style>
         table {
             font-family: arial, sans-serif;

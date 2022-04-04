@@ -15,9 +15,9 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
                     @if (auth()->user()->roles == 'user')
-                    <a href="{{ route('user.dash') }}" type="button" class="btn btn-outline-light">Dashboard</a>
+                    <a href="{{ route('user.dash') }}" type="button" class="btn btn-outline-light">Dasbor</a>
                     @elseif(auth()->user()->roles == 'admin')
-                        <a href="{{ route('admin.dash') }}" type="button" class="btn btn-outline-light">Dashboard</a>
+                        <a href="{{ route('admin.dash') }}" type="button" class="btn btn-outline-light">Dasbor</a>
                     @endif
                 @else
                         {{-- <a href="{{ route('show.user') }}" type="button" class="btn btn-outline-light" style="letter-spacing: 0px;">Masuk</a> --}}

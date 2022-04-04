@@ -1,6 +1,6 @@
 <table>
     <tr>
-        <th colspan="6" align="center">Laporan Catatan</th>
+        <th colspan="6" align="center">Data Catatan Perjalanan</th>
     </tr>
     <thead>
         <tr>
