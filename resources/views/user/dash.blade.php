@@ -21,16 +21,16 @@
         <p>Catatan Perjalanan</p>
         <ul class="nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-                    type="button" role="tab" aria-controls="pills-home" aria-selected="true">Beranda</button>
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Catatan</button>
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Catatan</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
-                    type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Isi Data Perjalanan</button>
+                <button class="nav-link" id="pills-isi-tab" data-bs-toggle="pill" data-bs-target="#pills-isi" type="button" role="tab" aria-controls="pills-isi" aria-selected="false">Isi Data</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-riwayat-tab" data-bs-toggle="pill" data-bs-target="#pills-riwayat" type="button" role="tab" aria-controls="pills-riwayat" aria-selected="false">Riwayat Perjalanan</button>
             </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
@@ -40,8 +40,11 @@
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 @include('user.navtabs.pills2')
             </div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <div class="tab-pane fade" id="pills-isi" role="tabpanel" aria-labelledby="pills-isi-tab">
                 @include('user.navtabs.pills3')
+            </div>
+            <div class="tab-pane fade" id="pills-riwayat" role="tabpanel" aria-labelledby="pills-riwayat-tab">
+                @include('user.navtabs.pills4')
             </div>
         </div>
     </div>
@@ -71,11 +74,11 @@
                     "next": "Selanjutnya"
                 },
                 "search": "Cari:",
-                "lengthMenu": "Tampilkan _MENU_ catatan per-halaman",
+                "lengthMenu": "Tampilkan MENU catatan per-halaman",
                 "zeroRecords": "Tidak ditemukan",
-                "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
+                "info": "Menampilkan halaman PAGE dari PAGES",
                 "infoEmpty": "Tidak ada catatan yang tersedia",
-                "infoFiltered": "(filter dari _MAX_ total catatan)"
+                "infoFiltered": "(filter dari MAX total catatan)"
             },
             columns: [{
                     data: 'DT_RowIndex',
@@ -97,10 +100,6 @@
                     data: 'suhutubuh',
                     name: 'suhutubuh'
                 },
-                {
-                    data: 'action',
-                    name: 'action'
-                }
             ],
         });
         $('#filter-catat').on('change', function () {

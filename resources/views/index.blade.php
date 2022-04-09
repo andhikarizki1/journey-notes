@@ -22,7 +22,7 @@
     <div class="col mt-3">
         <h1>Selamat Datang</h1>
             {{-- <h2 class="mt-3"><mark>ANGKASA RAYA</mark></h2> --}}
-            <h2>Ayo catat perjalanan kamu</h2>
+            <h2>Ayo Catat Perjalanan Kamu</h2>
             <h2>di aplikasi Kemana Aje!</h2>
             <div class="d-grid gap-2 col-8 mt-5 ms-1">
                 <a href="{{ route('show.user') }}" class="btn btn-lg" style="background-color: orangered; color: white; border-radius: 15px;">Catatan Perjalanan Baru</a>

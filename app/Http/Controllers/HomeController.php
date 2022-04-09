@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Catatan;
+use App\Models\User;
 use DataTables;
 use Carbon\Carbon;
 use Auth;
@@ -14,7 +15,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -22,44 +23,40 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.dash');
+        $riwayat = Catatan::with('User')->where('user_id', '=' , Auth::user()->id)->get();
+        return view('user.dash',compact('riwayat'));
     }
     public function ajaxuser(Request $request)
     {
         if ($request->ajax()) {
-            $catatan = Catatan::where('user_id', '=' , Auth::user()->id);
+            $catatanPerjalanan = Catatan::where('user_id', '=' , Auth::user()->id);
                 if ($request->input('filcatat')) {
                     switch ($request->input('filcatat')) {
                         case '1':
-                            $catatan = $catatan->orderBy('created_at', 'asc');
+                            $catatanPerjalanan = $catatanPerjalanan->orderBy('created_at', 'asc');
                             break;
-                        
+
                         case '2':
-                            $catatan = $catatan->orderBy('updated_at', 'asc');
+                            $catatanPerjalanan = $catatanPerjalanan->orderBy('updated_at', 'asc');
                             break;
-                        
+
                         case '3':
-                            $catatan = $catatan->orderBy('lokasi', 'asc');
+                            $catatanPerjalanan = $catatanPerjalanan->orderBy('lokasi', 'asc');
                             break;
                         case '4':
-                            $catatan = $catatan->orderBy('suhutubuh', 'asc');
+                            $catatanPerjalanan = $catatanPerjalanan->orderBy('suhutubuh', 'asc');
                             break;
                     }
                 }
-                return DataTables::of($catatan)
+                return DataTables::of($catatanPerjalanan)
                 ->addIndexColumn()
-                ->addColumn('tanggal', function ($catatan) {
-                    $tanggal = date('d/m/Y', strtotime($catatan->created_at));
+                ->addColumn('tanggal', function ($catatanPerjalanan) {
+                    $tanggal = date('d/m/Y', strtotime($catatanPerjalanan->created_at));
                     return $tanggal;
                 })
-                ->addColumn('waktu', function ($catatan) {
-                    $waktu = date('H:i', strtotime($catatan->updated_at));
+                ->addColumn('waktu', function ($catatanPerjalanan) {
+                    $waktu = date('H:i', strtotime($catatanPerjalanan->updated_at));
                     return $waktu;
-                })
-                ->addColumn('action', function ($catatan) {
-                    $btn = '<a href="dashboard/export/excel/'.$catatan->id.'"><i class="fa-solid fa-file-excel" style="height: 25px; color: #198754;"></i></a>';
-                    $btn .= '<a href="dashboard/export/pdf/'.$catatan->id.'"><i class="fa-solid fa-file-pdf ms-1" style="height: 25px; color: #dc3545;"></i></a>';
-                    return $btn;
                 })
                 ->rawColumns(['tanggal', 'waktu', 'action'])
                 ->make(true);
@@ -73,7 +70,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -87,31 +84,31 @@ class HomeController extends Controller
         $message = [
             'created_at.required' => 'Tanggal tidak boleh kosong',
             'updated_at.required' => 'Waktu tidak boleh kosong',
-            'lokasi.required' => 'Lokasi tidak boleh kosong',
-            'suhutubuh.required' => 'Suhu Tubuh tidak boleh kosong',
-            'suhutubuh.numeric' => 'Suhu Tubuh harus angka',
+            'lokasi.required'     => 'Lokasi tidak boleh kosong',
+            'suhutubuh.required'  => 'Suhu Tubuh tidak boleh kosong',
+            'suhutubuh.numeric'   => 'Suhu Tubuh harus angka',
         ];
 
-        $this->validate($request, 
+        $this->validate($request,
         [
-            'created_at' => 'required',
-            'updated_at' => 'required',
-            'lokasi' => 'required',
-            'suhutubuh' => 'required|numeric|between:0.00,99.99',
+            'created_at'          => 'required',
+            'updated_at'          => 'required',
+            'lokasi'              => 'required',
+            'suhutubuh'           => 'required|numeric|between:0.00,99.99',
         ], $message);
 
         $addcatatan = Catatan::create([
-            'created_at' => request('created_at'),
-            'updated_at' => request('updated_at'),
-            'lokasi' => request('lokasi'),
-            'suhutubuh' => request('suhutubuh'),
-            'user_id' => auth()->user()->id,
+            'created_at'          => request('created_at'),
+            'updated_at'          => request('updated_at'),
+            'lokasi'              => request('lokasi'),
+            'suhutubuh'           => request('suhutubuh'),
+            'user_id'             => auth()->user()->id,
         ]);
 
         if ($addcatatan) {
-            return redirect()->route('user.dash')->with('success', 'Data Berhasil Di Tambahkan!');
+            return redirect()->route('user.dash')->with('success', 'Data Perjalanan Berhasil Di Tambahkan!');
         } else {
-            return redirect()->route('user.dash')->with('error', 'Data Gagal Di Tambahkan!');
+            return redirect()->route('user.dash')->with('error', 'Data Perjalanan Gagal Di Tambahkan!');
         }
     }
 
@@ -123,7 +120,7 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
