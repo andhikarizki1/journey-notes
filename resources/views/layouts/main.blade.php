@@ -38,7 +38,7 @@
         }
 
         .card {
-            border-radius: 20px;
+            border-radius: 15px;
         }
 
     </style>

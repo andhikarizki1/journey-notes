@@ -30,7 +30,7 @@
     </div>
     <div class="col mt-0">
         <img src="{{ asset('images/traveling.png') }}" alt="traveling" width="619" height="450"
-            style="border-radius: 20px;">
+            style="border-radius: 18px;">
     </div>
 </div>
 @endsection
