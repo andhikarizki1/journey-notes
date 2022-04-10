@@ -11,7 +11,7 @@
                         <option value="1">Tanggal</option>
                         <option value="2">Waktu</option>
                         <option value="3">Lokasi</option>
-                        <option value="4">Suhu</option>
+                        <option value="4">Suhu Tubuh</option>
                     </select>
                     <div class="input-group-text" id="btnGroupAddon"><i class="fa-solid fa-filter"></i>
                     </div>
@@ -42,7 +42,6 @@
                         <th>Waktu</th>
                         <th>Lokasi</th>
                         <th>Suhu Tubuh</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
 
