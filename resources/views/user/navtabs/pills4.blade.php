@@ -6,7 +6,7 @@
     <tr>
       <th scope="col">Nama</th>
       <th scope="col">Tanggal</th>
-      <th scope="col">suhu tubuh</th>
+      <th scope="col">Suhu tubuh</th>
       <th scope="col">Lokasi</th>
     </tr>
   </thead>
